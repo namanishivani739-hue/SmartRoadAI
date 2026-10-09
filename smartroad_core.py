@@ -1,7 +1,11 @@
-import joblib, pandas as pd
+import os
+import joblib
+import pandas as pd
 
-T = joblib.load("traffic_model.pkl")
-R = joblib.load("risk_model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+T = joblib.load(os.path.join(BASE_DIR, "traffic_model.pkl"))
+R = joblib.load(os.path.join(BASE_DIR, "risk_model.pkl"))
 
 W_TRAFFIC = {"clear": "Clear", "cloudy": "Clouds", "rain": "Rain", "fog": "Fog"}
 W_CLOUDS = {"clear": 10, "cloudy": 75, "rain": 90, "fog": 90}
